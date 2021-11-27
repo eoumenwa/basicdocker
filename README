@@ -1,0 +1,533 @@
+### basicdocker
+
+https://docs.docker.com/engine/install/ubuntu/
+
+oeume@KRISOLIZ-SFFHPDPC MINGW64 ~/Downloads
+
+$ ssh -i ubuntu-vm_key.pem azureuser@20.124.104.28
+
+The authenticity of host '20.124.104.28 (20.124.104.28)' can't be established.
+
+ECDSA key fingerprint is SHA256:e4P9GWDUkeU  
+
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+
+Warning: Permanently added '20.124.104.28' (ECDSA) to the list of known hosts.
+
+Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 5.11.0-1021-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+
+* Management:     https://landscape.canonical.com
+
+* Support:        https://ubuntu.com/advantage
+
+  System information as of Fri Nov 19 02:10:21 UTC 2021
+
+  System load:  0.0               Processes:             127      
+
+Usage of /:   4.6% of 28.90GB   Users logged in:       0        
+
+Memory usage: 3%                IPv4 address for eth0: 10.0.0.4 
+
+Swap usage:   0%
+
+1 update can be applied immediately.
+
+To see these additional updates run: apt list --upgradable
+
+
+The list of available updates is more than a week old.
+
+To check for new updates run: sudo apt update
+
+
+The programs included with the Ubuntu system are free software; the exact distribution terms for each program are described in the
+
+
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by applicable law.
+
+To run a command as administrator (user "root"), use "sudo <command>".
+
+See "man sudo_root" for details.
+
+azureuser@ubuntu-vm:~$ hostnamectl
+
+Static hostname: ubuntu-vm
+
+Icon name: computer-vm
+
+Chassis: vm
+
+Machine ID: bc3fe1188f2c49a6bdacc7486d2f695d
+
+Boot ID: 6f3637c5440c4767b637dc2bb405677d
+
+Virtualization: microsoft
+
+Operating System: Ubuntu 20.04.3 LTS
+
+Kernel: Linux 5.11.0-1021-azure
+
+
+Architecture: x86-64
+
+azureuser@ubuntu-vm:~$  sudo apt-get remove docker docker-engine docker.io containerd runc
+
+Reading package lists... Done
+
+Building dependency tree
+
+Reading state information... Done
+
+Package 'docker.io' is not installed, so not removed
+
+E: Unable to locate package docker
+
+
+E: Unable to locate package docker-engine
+
+azureuser@ubuntu-vm:~$ sudo apt-get update
+
+Hit:1 http://azure.archive.ubuntu.com/ubuntu focal InRelease
+   
+Get:10 http://azure.archive.ubuntu.com/ubuntu focal/multiverse amd64 c-n-f Metadata [9136 B]
+
+Fetched 20.6 MB in 3s (6515 kB/s)
+
+Reading package lists... Done
+azureuser@ubuntu-vm:~$
+
+azureuser@ubuntu-vm:~$ sudo apt-get install \
+
+>     ca-certificates \
+
+>     curl \
+
+>     gnupg \
+
+>     lsb-release
+
+Reading package lists... Done
+
+Building dependency tree
+
+Reading state information... Done
+
+lsb-release is already the newest version (11.1.0ubuntu2).
+
+lsb-release set to manually installed.
+
+ca-certificates is already the newest version (20210119~20.04.2).
+
+ca-certificates set to manually installed.
+
+curl is already the newest version (7.68.0-1ubuntu2.7).
+
+curl set to manually installed.
+
+gnupg is already the newest version (2.2.19-3ubuntu2.1).
+
+gnupg set to manually installed.
+
+0 upgraded, 0 newly installed, 0 to remove and 24 not upgraded.
+
+azureuser@ubuntu-vm:~$
+
+
+azureuser@ubuntu-vm:~$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpgclient_loop: 
+
+send disconnect: Connection reset by peer
+
+oeume@KRISOLIZ-SFFHPDPC MINGW64 ~/Downloads
+
+$ ssh -i ubuntu-vm_key.pem azureuser@20.124.104.28
+
+Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 5.11.0-1021-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Fri Nov 19 02:53:40 UTC 2021
+
+  System load:  0.0               Processes:             127
+  Usage of /:   5.1% of 28.90GB   Users logged in:       0
+  Memory usage: 3%                IPv4 address for eth0: 10.0.0.4
+  Swap usage:   0%
+
+
+18 updates can be applied immediately.
+11 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+
+Last login: Fri Nov 19 02:16:35 2021 from 73.152.119.181
+
+azureuser@ubuntu-vm:~$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+azureuser@ubuntu-vm:~$ echo \
+>   "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+>   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+azureuser@ubuntu-vm:~$ sudo apt-get update
+Hit:1 http://azure.archive.ubuntu.com/ubuntu focal InRelease
+.
+.
+Fetched 184 kB in 0s (370 kB/s)
+Reading package lists... Done
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ sudo apt-get install docker-ce docker-ce-cli containerd.io
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following additional packages will be installed:
+  docker-ce-rootless-extras docker-scan-plugin pigz slirp4netns
+
+Processing triggers for systemd (245.4-4ubuntu3.13) ...
+azureuser@ubuntu-vm:~$ docker run hello-world
+docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/create": dial unix /var/run/docker.sock: connect: permission denied.
+See 'docker run --help'.
+azureuser@ubuntu-vm:~$ sudo docker run hello-world
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+2db29710123e: Pull complete
+Digest: sha256:cc15c5b292d8525effc0f89cb299f1804f3a725c8d05e158653a563f15e4f685
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+
+1. The Docker client contacted the Docker daemon.
+
+2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+
+3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+
+4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+
+$ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:  https://hub.docker.com/
+
+For more examples and ideas, visit:
+
+https://docs.docker.com/get-started/
+
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+
+azureuser@ubuntu-vm:~$ sudo groupadd docker
+
+groupadd: group 'docker' already exists
+
+azureuser@ubuntu-vm:~$ sudo usermod -aG docker $USER
+
+azureuser@ubuntu-vm:~$ logout
+
+Connection to 20.124.104.28 closed.
+
+oeume@KRISOLIZ-SFFHPDPC MINGW64 ~/Downloads
+
+$ ssh -i ubuntu-vm_key.pem azureuser@20.124.104.28
+
+Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 5.11.0-1021-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Fri Nov 19 03:09:36 UTC 2021
+
+  System load:  0.0               Processes:                128
+  Usage of /:   6.7% of 28.90GB   Users logged in:          0
+  Memory usage: 4%                IPv4 address for docker0: 172.17.0.1
+  Swap usage:   0%                IPv4 address for eth0:    10.0.0.4
+
+
+18 updates can be applied immediately.
+
+11 of these updates are standard security updates.
+
+To see these additional updates run: apt list --upgradable
+
+
+Last login: Fri Nov 19 02:53:40 2021 from 73.152.119.181
+azureuser@ubuntu-vm:~$ docker run hello-world
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+ 
+ oeume@KRISOLIZ-SFFHPDPC MINGW64 ~/Downloads
+$ ssh -i ubuntu-vm_key.pem azureuser@20.124.104.28
+Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 5.11.0-1021-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Thu Nov 25 18:34:07 UTC 2021
+
+  System load:  1.21              Processes:                138
+  Usage of /:   7.1% of 28.90GB   Users logged in:          0
+  Memory usage: 4%                IPv4 address for docker0: 172.17.0.1
+  Swap usage:   0%                IPv4 address for eth0:    10.0.0.4
+
+
+18 updates can be applied immediately.
+11 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+
+Last login: Fri Nov 19 03:09:36 2021 from 73.152.119.181
+azureuser@ubuntu-vm:~$ ls
+azureuser@ubuntu-vm:~$ ls -l
+total 0
+azureuser@ubuntu-vm:~$ docker ps -a
+CONTAINER ID   IMAGE         COMMAND    CREATED      STATUS                  PORTS     NAMES
+e7da0e4933e3   hello-world   "/hello"   6 days ago   Exited (0) 6 days ago             adoring_visvesvaraya
+c22f9b018077   hello-world   "/hello"   6 days ago   Exited (0) 6 days ago             trusting_albattani
+azureuser@ubuntu-vm:~$ docker images
+REPOSITORY    TAG       IMAGE ID       CREATED        SIZE
+hello-world   latest    feb5d9fea6a5   2 months ago   13.3kB
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ docker run -ti
+"docker run" requires at least 1 argument.
+See 'docker run --help'.
+
+Usage:  docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+
+Run a command in a new container
+azureuser@ubuntu-vm:~$ docker run -ti ubunto:latest bash
+Unable to find image 'ubunto:latest' locally
+docker: Error response from daemon: pull access denied for ubunto, repository does not exist or may require 'docker login': denied: requested access to the resource is denied.
+See 'docker run --help'.
+azureuser@ubuntu-vm:~$ docker run -ti ubuntu:latest bash
+Unable to find image 'ubuntu:latest' locally
+latest: Pulling from library/ubuntu
+7b1a6ab2e44d: Pull complete
+Digest: sha256:626ffe58f6e7566e00254b638eb7e0f3b11d4da9675088f4781a50ae288f3322
+Status: Downloaded newer image for ubuntu:latest
+root@6d7eca1e7b24:/# ls
+bin  boot  dev  etc  home  lib  lib32  lib64  libx32  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@6d7eca1e7b24:/# ls -la
+total 56
+drwxr-xr-x   1 root root 4096 Nov 25 19:22 .
+drwxr-xr-x   1 root root 4096 Nov 25 19:22 ..
+-rwxr-xr-x   1 root root    0 Nov 25 19:22 .dockerenv
+lrwxrwxrwx   1 root root    7 Oct  6 16:47 bin -> usr/bin
+drwxr-xr-x   2 root root 4096 Apr 15  2020 boot
+drwxr-xr-x   5 root root  360 Nov 25 19:22 dev
+drwxr-xr-x   1 root root 4096 Nov 25 19:22 etc
+drwxr-xr-x   2 root root 4096 Apr 15  2020 home
+lrwxrwxrwx   1 root root    7 Oct  6 16:47 lib -> usr/lib
+lrwxrwxrwx   1 root root    9 Oct  6 16:47 lib32 -> usr/lib32
+lrwxrwxrwx   1 root root    9 Oct  6 16:47 lib64 -> usr/lib64
+lrwxrwxrwx   1 root root   10 Oct  6 16:47 libx32 -> usr/libx32
+drwxr-xr-x   2 root root 4096 Oct  6 16:47 media
+drwxr-xr-x   2 root root 4096 Oct  6 16:47 mnt
+drwxr-xr-x   2 root root 4096 Oct  6 16:47 opt
+dr-xr-xr-x 195 root root    0 Nov 25 19:22 proc
+drwx------   2 root root 4096 Oct  6 16:58 root
+drwxr-xr-x   5 root root 4096 Oct  6 16:58 run
+lrwxrwxrwx   1 root root    8 Oct  6 16:47 sbin -> usr/sbin
+drwxr-xr-x   2 root root 4096 Oct  6 16:47 srv
+dr-xr-xr-x  12 root root    0 Nov 25 19:22 sys
+drwxrwxrwt   2 root root 4096 Oct  6 16:58 tmp
+drwxr-xr-x  13 root root 4096 Oct  6 16:47 usr
+drwxr-xr-x  11 root root 4096 Oct  6 16:58 var
+root@6d7eca1e7b24:/# cat /etc/lsb-release
+DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=20.04
+DISTRIB_CODENAME=focal
+DISTRIB_DESCRIPTION="Ubuntu 20.04.3 LTS"
+root@6d7eca1e7b24:/#
+root@6d7eca1e7b24:/#
+root@6d7eca1e7b24:/# exit
+exit
+azureuser@ubuntu-vm:~$ docker run -ti ubuntu:latest bash
+root@8050290dd8e6:/# docker ps
+bash: docker: command not found
+root@8050290dd8e6:/# d   
+bash: d: command not found
+root@8050290dd8e6:/# exit
+azureuser@ubuntu-vm:~$ docker ps -a
+CONTAINER ID   IMAGE           COMMAND    CREATED          STATUS                        PORTS     NAMES
+8050290dd8e6   ubuntu:latest   "bash"     13 minutes ago   Exited (127) 31 seconds ago             happy_wu
+6d7eca1e7b24   ubuntu:latest   "bash"     19 minutes ago   Exited (0) 13 minutes ago               heuristic_leavitt
+e7da0e4933e3   hello-world     "/hello"   6 days ago       Exited (0) 6 days ago                   adoring_visvesvaraya
+c22f9b018077   hello-world     "/hello"   6 days ago       Exited (0) 6 days ago                   trusting_albattani
+azureuser@ubuntu-vm:~$ docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+azureuser@ubuntu-vm:~$ docker run -ti ubuntu:latest bash
+root@cd05574cf082:/#
+root@cd05574cf082:/# 
+root@cd05574cf082:/# 
+root@cd05574cf082:/# 
+root@cd05574cf082:/# touch MY-FILE-HERE 
+root@cd05574cf082:/# LS
+bash: LS: command not found
+root@cd05574cf082:/# ls
+MY-FILE-HERE  bin  boot  dev  etc  home  lib  lib32  lib64  libx32  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@cd05574cf082:/# exit
+exit
+azureuser@ubuntu-vm:~$ docker run -ti ubuntu:latest bash
+root@832fc9b0f341:/# ls
+bin  boot  dev  etc  home  lib  lib32  lib64  libx32  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@832fc9b0f341:/# client_loop: send disconnect: Connection reset by peer
+
+oeume@KRISOLIZ-SFFHPDPC MINGW64 ~/Downloads
+$ ssh -i ubuntu-vm_key.pem azureuser@20.124.104.28
+Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 5.11.0-1021-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Fri Nov 26 11:26:45 UTC 2021
+
+  System load:  0.77              Processes:                138
+  Usage of /:   7.4% of 28.90GB   Users logged in:          0
+  Memory usage: 3%                IPv4 address for docker0: 172.17.0.1
+  Swap usage:   0%                IPv4 address for eth0:    10.0.0.4
+
+
+7 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+
+Last login: Thu Nov 25 19:37:24 2021 from 73.152.119.181
+azureuser@ubuntu-vm:~$ docker run -ti ubuntu bash
+root@3c272caae2e1:/# ls
+bin  boot  dev  etc  home  lib  lib32  lib64  libx32  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@3c272caae2e1:/# touch MY-IMPORTANT-FILE
+root@3c272caae2e1:/# LS
+bash: LS: command not found
+root@3c272caae2e1:/# ls
+MY-IMPORTANT-FILE  bin  boot  dev  etc  home  lib  lib32  lib64  libx32  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@3c272caae2e1:/# exit
+exit
+azureuser@ubuntu-vm:~$ docker ps -a
+CONTAINER ID   IMAGE           COMMAND    CREATED          STATUS                      PORTS     NAMES
+3c272caae2e1   ubuntu          "bash"     50 seconds ago   Exited (0) 8 seconds ago              stupefied_leavitt
+832fc9b0f341   ubuntu:latest   "bash"     16 hours ago     Exited (129) 15 hours ago             hungry_brown
+cd05574cf082   ubuntu:latest   "bash"     16 hours ago     Exited (0) 16 hours ago               hardcore_joliot
+8050290dd8e6   ubuntu:latest   "bash"     16 hours ago     Exited (127) 16 hours ago             happy_wu
+6d7eca1e7b24   ubuntu:latest   "bash"     16 hours ago     Exited (0) 16 hours ago               heuristic_leavitt
+e7da0e4933e3   hello-world     "/hello"   7 days ago       Exited (0) 7 days ago                 adoring_visvesvaraya
+c22f9b018077   hello-world     "/hello"   7 days ago       Exited (0) 7 days ago                 trusting_albattani
+azureuser@ubuntu-vm:~$ docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+azureuser@ubuntu-vm:~$ docker commit 3c272caae2e1
+sha256:a63d46cfeb1e3a5d2d1cb8f021179c4be9c4f44550915765b9c2d6173ef44375
+azureuser@ubuntu-vm:~$ docker tag a63d46cfeb1e3a5d2d1cb8f021179c4be9c4f44550915765b9c2d6173ef44375 my-new-image
+azureuser@ubuntu-vm:~$ docker images
+REPOSITORY     TAG       IMAGE ID       CREATED         SIZE
+my-new-image   latest    a63d46cfeb1e   2 minutes ago   72.8MB
+ubuntu         latest    ba6acccedd29   5 weeks ago     72.8MB
+hello-world    latest    feb5d9fea6a5   2 months ago    13.3kB
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ docker commit stupefied_leavitt
+sha256:cf0cae96f0758bd3d7074c10bb2d90acf01d6998360a137a460cfeccf7326a71
+azureuser@ubuntu-vm:~$ docker commit stupefied_leavitt my-new-image-2
+sha256:e992c94f56402d0510f41f928231c6e6480bc65f383929c79792e17d0a3b1c80
+azureuser@ubuntu-vm:~$ docker images
+REPOSITORY       TAG       IMAGE ID       CREATED          SIZE
+my-new-image-2   latest    e992c94f5640   12 seconds ago   72.8MB
+<none>           <none>    cf0cae96f075   58 seconds ago   72.8MB
+my-new-image     latest    a63d46cfeb1e   7 minutes ago    72.8MB
+ubuntu           latest    ba6acccedd29   5 weeks ago      72.8MB
+hello-world      latest    feb5d9fea6a5   2 months ago     13.3kB
+azureuser@ubuntu-vm:~$ docker run -ti my-new-image
+root@4a668fd8935a:/# ls
+MY-IMPORTANT-FILE  bin  boot  dev  etc  home  lib  lib32  lib64  libx32  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@4a668fd8935a:/# exit
+exit
+azureuser@ubuntu-vm:~$ docker ps -a
+CONTAINER ID   IMAGE           COMMAND    CREATED          STATUS                      PORTS     NAMES
+4a668fd8935a   my-new-image    "bash"     10 minutes ago   Exited (0) 2 minutes ago              naughty_moore
+3c272caae2e1   ubuntu          "bash"     24 minutes ago   Exited (0) 23 minutes ago             stupefied_leavitt
+832fc9b0f341   ubuntu:latest   "bash"     16 hours ago     Exited (129) 16 hours ago             hungry_brown
+cd05574cf082   ubuntu:latest   "bash"     16 hours ago     Exited (0) 16 hours ago               hardcore_joliot
+8050290dd8e6   ubuntu:latest   "bash"     16 hours ago     Exited (127) 16 hours ago             happy_wu
+6d7eca1e7b24   ubuntu:latest   "bash"     16 hours ago     Exited (0) 16 hours ago               heuristic_leavitt
+e7da0e4933e3   hello-world     "/hello"   7 days ago       Exited (0) 7 days ago                 adoring_visvesvaraya
+c22f9b018077   hello-world     "/hello"   7 days ago       Exited (0) 7 days ago                 trusting_albattani
+azureuser@ubuntu-vm:~$ docker images
+REPOSITORY       TAG       IMAGE ID       CREATED          SIZE
+my-new-image-2   latest    e992c94f5640   14 minutes ago   72.8MB
+<none>           <none>    cf0cae96f075   15 minutes ago   72.8MB
+my-new-image     latest    a63d46cfeb1e   22 minutes ago   72.8MB
+ubuntu           latest    ba6acccedd29   5 weeks ago      72.8MB
+hello-world      latest    feb5d9fea6a5   2 months ago     13.3kB
+azureuser@ubuntu-vm:~$ docker commit stupefied_leavitt my-new-image
+sha256:a44fd084ac55411392a2e27f515000f48dd6c25710bfc551678ef2150ee392a0
+azureuser@ubuntu-vm:~$ docker images
+REPOSITORY       TAG       IMAGE ID       CREATED          SIZE
+my-new-image     latest    a44fd084ac55   13 seconds ago   72.8MB
+my-new-image-2   latest    e992c94f5640   17 minutes ago   72.8MB
+<none>           <none>    cf0cae96f075   18 minutes ago   72.8MB
+<none>           <none>    a63d46cfeb1e   24 minutes ago   72.8MB
+ubuntu           latest    ba6acccedd29   5 weeks ago      72.8MB
+hello-world      latest    feb5d9fea6a5   2 months ago     13.3kB
+azureuser@ubuntu-vm:~$ docker commit stupefied_leavitt my-new-image
+sha256:781a84385cd9d2bf709302268c598bb18a5a4b7bf2a6f185a5fbc50440b3db15
+azureuser@ubuntu-vm:~$ docker images
+REPOSITORY       TAG       IMAGE ID       CREATED          SIZE
+my-new-image     latest    781a84385cd9   7 seconds ago    72.8MB
+<none>           <none>    a44fd084ac55   40 seconds ago   72.8MB
+my-new-image-2   latest    e992c94f5640   17 minutes ago   72.8MB
+<none>           <none>    cf0cae96f075   18 minutes ago   72.8MB
+<none>           <none>    a63d46cfeb1e   25 minutes ago   72.8MB
+ubuntu           latest    ba6acccedd29   5 weeks ago      72.8MB
+hello-world      latest    feb5d9fea6a5   2 months ago     13.3kB
+azureuser@ubuntu-vm:~$ docker ps -a
+CONTAINER ID   IMAGE           COMMAND    CREATED          STATUS                      PORTS     NAMES
+4a668fd8935a   a63d46cfeb1e    "bash"     15 minutes ago   Exited (0) 7 minutes ago              naughty_moore
+3c272caae2e1   ubuntu          "bash"     29 minutes ago   Exited (0) 28 minutes ago             stupefied_leavitt
+832fc9b0f341   ubuntu:latest   "bash"     16 hours ago     Exited (129) 16 hours ago             hungry_brown
+cd05574cf082   ubuntu:latest   "bash"     16 hours ago     Exited (0) 16 hours ago               hardcore_joliot
+8050290dd8e6   ubuntu:latest   "bash"     16 hours ago     Exited (127) 16 hours ago             happy_wu
+6d7eca1e7b24   ubuntu:latest   "bash"     17 hours ago     Exited (0) 16 hours ago               heuristic_leavitt
+e7da0e4933e3   hello-world     "/hello"   7 days ago       Exited (0) 7 days ago                 adoring_visvesvaraya
+c22f9b018077   hello-world     "/hello"   7 days ago       Exited (0) 7 days ago                 trusting_albattani
+azureuser@ubuntu-vm:~$ docker run -ti my-new-image-2
+root@2aa93973438e:/# ls
+MY-IMPORTANT-FILE  bin  boot  dev  etc  home  lib  lib32  lib64  libx32  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@2aa93973438e:/# client_loop: send disconnect: Connection reset by peer
+
+oeume@KRISOLIZ-SFFHPDPC MINGW64 ~/Downloads
+$
