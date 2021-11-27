@@ -694,3 +694,11 @@ Removing intermediate container 8cdb3b3d57a0
 Successfully built 0a954523f777
 Successfully tagged example/nanoer:latest
 azureuser@ubuntu-vm:~/example$ 
+
+
+azureuser@ubuntu-vm:~/example$ docker run --rm -ti nanoer       
+Unable to find image 'nanoer:latest' locally
+docker: Error response from daemon: pull access denied for nanoer, repository does not exist or may require 'docker login': denied: requested access to the resource is denied.
+See 'docker run --help'.
+azureuser@ubuntu-vm:~/example$ docker run --rm -ti example/nanoer
+azureuser@ubuntu-vm:~/example$ 
