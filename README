@@ -628,3 +628,69 @@ Need to get 1652 kB of archives.
 After this operation, 3267 kB of additional disk space will be used.
 Do you want to continue? [Y/n] Abort.
 The command '/bin/sh -c apt-get install nano' returned a non-zero code: 1
+
+
+azureuser@ubuntu-vm:~/example$ docker build -t example/nanoer .
+Sending build context to Docker daemon  2.048kB
+Step 1/4 : FROM debian:sid      
+ ---> 484ec39d2458
+Step 2/4 : RUN apt-get -y update
+ ---> Using cache
+ ---> 913ff2e46b29
+Step 3/4 : RUN yes | apt-get install nano    ########################### error resolved
+ ---> Running in 819cb385769b
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  libgpm2 libncursesw6 libtinfo6 ncurses-bin        
+Suggested packages:
+  gpm hunspell     
+The following NEW packages will be installed:
+  libgpm2 libncursesw6 nano
+The following packages will be upgraded:
+  libtinfo6 ncurses-bin
+2 upgraded, 3 newly installed, 0 to remove and 16 not upgraded.
+Need to get 1652 kB of archives.
+After this operation, 3267 kB of additional disk space will be used.
+Do you want to continue? [Y/n] Get:1 http://deb.debian.org/debian sid/main amd64 libtinfo6 amd64 6.3-1 [349 kB]
+Get:2 http://deb.debian.org/debian sid/main amd64 ncurses-bin amd64 6.3-1 [439 kB]
+Get:3 http://deb.debian.org/debian sid/main amd64 libncursesw6 amd64 6.3-1 [133 kB]
+Get:4 http://deb.debian.org/debian sid/main amd64 nano amd64 
+5.9-1 [695 kB]
+Get:5 http://deb.debian.org/debian sid/main amd64 libgpm2 amd64 1.20.7-9 [35.8 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 1652 kB in 0s (51.2 MB/s)
+(Reading database ... 6665 files and directories currently installed.)
+Preparing to unpack .../libtinfo6_6.3-1_amd64.deb ...        
+Unpacking libtinfo6:amd64 (6.3-1) over (6.2+20210905-1) ...
+Setting up libtinfo6:amd64 (6.3-1) ...
+(Reading database ... 6665 files and directories currently installed.)
+Preparing to unpack .../ncurses-bin_6.3-1_amd64.deb ...      
+Unpacking ncurses-bin (6.3-1) over (6.2+20210905-1) ...
+Setting up ncurses-bin (6.3-1) ...
+Selecting previously unselected package libncursesw6:amd64.
+(Reading database ... 6665 files and directories currently installed.)
+Preparing to unpack .../libncursesw6_6.3-1_amd64.deb ...     
+Unpacking libncursesw6:amd64 (6.3-1) ...
+Selecting previously unselected package nano.
+Preparing to unpack .../archives/nano_5.9-1_amd64.deb ...
+Unpacking nano (5.9-1) ...
+Selecting previously unselected package libgpm2:amd64.
+Preparing to unpack .../libgpm2_1.20.7-9_amd64.deb ...
+Unpacking libgpm2:amd64 (1.20.7-9) ...
+Setting up libgpm2:amd64 (1.20.7-9) ...
+Setting up libncursesw6:amd64 (6.3-1) ...
+Setting up nano (5.9-1) ...
+update-alternatives: using /bin/nano to provide /usr/bin/editor (editor) in auto mode
+update-alternatives: using /bin/nano to provide /usr/bin/pico (pico) in auto mode
+Processing triggers for libc-bin (2.32-4) ...
+Removing intermediate container 819cb385769b
+ ---> a22086808562
+Step 4/4 : CMD ["usr/bin/nano", "/tmp/notes"]
+ ---> Running in 8cdb3b3d57a0
+Removing intermediate container 8cdb3b3d57a0
+ ---> 0a954523f777
+Successfully built 0a954523f777
+Successfully tagged example/nanoer:latest
+azureuser@ubuntu-vm:~/example$ 
