@@ -8,7 +8,7 @@ $ ssh -i ubuntu-vm_key.pem azureuser@20.124.104.28
 
 The authenticity of host '20.124.104.28 (20.124.104.28)' can't be established.
 
-ECDSA key fingerprint is SHA256:e4P9GWDUkeU  
+ECDSA key fingerprint is SHA25 
 
 Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
 
