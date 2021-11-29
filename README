@@ -2449,3 +2449,265 @@ does this work?
 yes
 ^C
 azureuser@ubuntu-vm:~$ 
+
+
+CONNECTING BETWEEN CONTAINERS: CONTAINER NETWORKING
+
+PC1
+
+
+oeume@KRISOLIZ-SFFHPDPC MINGW64 ~/Downloads
+$ ssh -i ubuntu-vm_key.pem azureuser@20.124.104.28
+Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 5.11.0-1021-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Mon Nov 29 07:25:03 UTC 2021
+
+  System load:  0.51              Processes:                139       
+  Usage of /:   8.8% of 28.90GB   Users logged in:          0
+  Memory usage: 4%                IPv4 address for docker0: 172.17.0.1
+  Swap usage:   0%                IPv4 address for eth0:    10.0.0.4  
+
+ * Super-optimized for small spaces - read how we shrank the memory
+   footprint of MicroK8s to make it the smallest full K8s around.
+
+   https://ubuntu.com/blog/microk8s-memory-optimisation
+
+15 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+
+Last login: Mon Nov 29 00:21:45 2021 from 73.152.119.181
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ docker network ls
+NETWORK ID     NAME      DRIVER    SCOPE
+08ff07190912   bridge    bridge    local
+0bc03ec04937   host      host      local
+5ce82a6c1d14   none      null      local
+azureuser@ubuntu-vm:~$ docker network create learning
+1f8262c161b6de95011d171ca12d8470f891a522f7b6173f5037757c82139672
+azureuser@ubuntu-vm:~$ logout
+Connection to 20.124.104.28 closed.
+
+oeume@KRISOLIZ-SFFHPDPC MINGW64 ~/Downloads
+$ ssh -i ubuntu-vm_key.pem azureuser@20.124.104.28
+Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 5.11.0-1021-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Mon Nov 29 07:28:24 UTC 2021
+
+  System load:  0.02              Users logged in:                  0
+  Usage of /:   8.8% of 28.90GB   IPv4 address for br-1f8262c161b6: 172.18.0.1
+  Memory usage: 4%                IPv4 address for docker0:         172.17.0.1
+  Swap usage:   0%                IPv4 address for eth0:            10.0.0.4
+  Processes:    138
+
+ * Super-optimized for small spaces - read how we shrank the memory
+   footprint of MicroK8s to make it the smallest full K8s around.
+
+   https://ubuntu.com/blog/microk8s-memory-optimisation
+
+15 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+
+Last login: Mon Nov 29 07:25:04 2021 from 73.152.119.181
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ docker run --rm -ti --net learning --name catserver ubuntu:14.04
+root@995fb85f7dae:/# azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ docker run --rm -ti --net learning --name catserver ubuntu:14.04 bash
+root@0d99b3acc6b3:/# ping catserver
+PING catserver (172.18.0.2) 56(84) bytes of data.
+64 bytes from 0d99b3acc6b3 (172.18.0.2): icmp_seq=1 ttl=64 time=0.028 ms
+64 bytes from 0d99b3acc6b3 (172.18.0.2): icmp_seq=2 ttl=64 time=0.054 ms
+64 bytes from 0d99b3acc6b3 (172.18.0.2): icmp_seq=3 ttl=64 time=0.050 ms
+64 bytes from 0d99b3acc6b3 (172.18.0.2): icmp_seq=4 ttl=64 time=0.059 ms
+64 bytes from 0d99b3acc6b3 (172.18.0.2): icmp_seq=5 ttl=64 time=0.062 ms
+64 bytes from 0d99b3acc6b3 (172.18.0.2): icmp_seq=6 ttl=64 time=0.056 ms
+64 bytes from 0d99b3acc6b3 (172.18.0.2): icmp_seq=7 ttl=64 time=0.060 ms
+64 bytes from 0d99b3acc6b3 (172.18.0.2): icmp_seq=8 ttl=64 time=0.061 ms
+64 bytes from 0d99b3acc6b3 (172.18.0.2): icmp_seq=9 ttl=64 time=0.059 ms
+64 bytes from 0d99b3acc6b3 (172.18.0.2): icmp_seq=10 ttl=64 time=0.070 ms
+64 bytes from 0d99b3acc6b3 (172.18.0.2): icmp_seq=11 ttl=64 time=0.062 ms
+64 bytes from 0d99b3acc6b3 (172.18.0.2): icmp_seq=12 ttl=64 time=0.049 ms
+64 bytes from 0d99b3acc6b3 (172.18.0.2): icmp_seq=13 ttl=64 time=0.068 ms
+64 bytes from 0d99b3acc6b3 (172.18.0.2): icmp_seq=14 ttl=64 time=0.064 ms
+64 bytes from 0d99b3acc6b3 (172.18.0.2): icmp_seq=15 ttl=64 time=0.051 ms
+64 bytes from 0d99b3acc6b3 (172.18.0.2): icmp_seq=16 ttl=64 time=0.066 ms
+64 bytes from 0d99b3acc6b3 (172.18.0.2): icmp_seq=17 ttl=64 time=0.048 ms
+^Z
+[1]+  Stopped                 ping catserver
+root@0d99b3acc6b3:/# 
+root@0d99b3acc6b3:/# 
+root@0d99b3acc6b3:/# ping dogserver
+ping: unknown host dogserver
+root@0d99b3acc6b3:/# ping dogserver
+PING dogserver (172.18.0.3) 56(84) bytes of data.
+64 bytes from dogserver.learning (172.18.0.3): icmp_seq=1 ttl=64 time=0.307 ms
+64 bytes from dogserver.learning (172.18.0.3): icmp_seq=2 ttl=64 time=0.096 ms
+64 bytes from dogserver.learning (172.18.0.3): icmp_seq=3 ttl=64 time=0.099 ms
+64 bytes from dogserver.learning (172.18.0.3): icmp_seq=4 ttl=64 time=0.082 ms
+^C
+--- dogserver ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3070ms
+rtt min/avg/max/mdev = 0.082/0.146/0.307/0.093 ms
+root@0d99b3acc6b3:/# ping catserver
+PING catserver (172.18.0.2) 56(84) bytes of data.
+64 bytes from 0d99b3acc6b3 (172.18.0.2): icmp_seq=1 ttl=64 time=0.036 ms
+64 bytes from 0d99b3acc6b3 (172.18.0.2): icmp_seq=2 ttl=64 time=0.051 ms
+64 bytes from 0d99b3acc6b3 (172.18.0.2): icmp_seq=3 ttl=64 time=0.065 ms
+^C
+--- catserver ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2031ms
+rtt min/avg/max/mdev = 0.036/0.050/0.065/0.014 ms
+root@0d99b3acc6b3:/#
+root@0d99b3acc6b3:/# 
+root@0d99b3acc6b3:/# nc dogserver 1234
+meow
+woot
+
+
+root@0d99b3acc6b3:/# ping dogserver
+PING dogserver (172.18.0.3) 56(84) bytes of data.
+64 bytes from dogserver.learning (172.18.0.3): icmp_seq=1 ttl=64 time=0.076 ms
+64 bytes from dogserver.learning (172.18.0.3): icmp_seq=2 ttl=64 time=0.146 ms
+64 bytes from dogserver.learning (172.18.0.3): icmp_seq=3 ttl=64 time=0.074 ms
+^C
+--- dogserver ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2041ms
+rtt min/avg/max/mdev = 0.074/0.098/0.146/0.035 ms
+root@0d99b3acc6b3:/# ping bobcatserver
+PING bobcatserver (172.19.0.3) 56(84) bytes of data.
+64 bytes from bobcatserver.catsonly (172.19.0.3): icmp_seq=1 ttl=64 time=0.122 ms        
+64 bytes from bobcatserver.catsonly (172.19.0.3): icmp_seq=2 ttl=64 time=0.097 ms
+64 bytes from bobcatserver.catsonly (172.19.0.3): icmp_seq=3 ttl=64 time=0.077 ms
+64 bytes from bobcatserver.catsonly (172.19.0.3): icmp_seq=4 ttl=64 time=0.074 ms
+^C
+--- bobcatserver ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3073ms
+rtt min/avg/max/mdev = 0.074/0.092/0.122/0.021 ms
+root@0d99b3acc6b3:/# 
+
+
+SERVER - DOGSERVER
+
+azureuser@ubuntu-vm:~$ docker run --rm -ti --net 
+--net learning --name dogserver ubuntu:14.04 bash
+root@4978e9fc500b:/# nc -lp 1234
+meow
+woot
+
+
+^C
+root@4978e9fc500b:/# ping catserver
+PING catserver (172.18.0.2) 56(84) bytes of data.
+64 bytes from catserver.learning (172.18.0.2): icmp_seq=1 ttl=64 time=0.098 ms        
+64 bytes from catserver.learning (172.18.0.2): icmp_seq=2 ttl=64 time=0.086 ms        
+^C
+--- catserver ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1022ms
+rtt min/avg/max/mdev = 0.086/0.092/0.098/0.006 ms
+root@4978e9fc500b:/# 
+root@4978e9fc500b:/# 
+root@4978e9fc500b:/# ping bobcatserver
+ping: unknown host bobcatserver
+root@4978e9fc500b:/# 
+
+
+CATSONLY NETWORK/SERVER
+
+azureuser@ubuntu-vm:~$ docker network create catsonly
+2d1a32af292479ad6801d2d8d8597b9e5fdad95b4ff5cc5d5e32d0bdc3249763
+azureuser@ubuntu-vm:~$ docker network connect catsonly catserver
+azureuser@ubuntu-vm:~$ docker run --rm -ti --net catsonly --name bobcatserver ubuntu:14.04 bash    
+root@80bdba4521c1:/#
+root@80bdba4521c1:/#
+root@80bdba4521c1:/#
+root@80bdba4521c1:/# ping catserver
+PING catserver (172.19.0.2) 56(84) bytes of data.
+64 bytes from catserver.catsonly 
+(172.19.0.2): icmp_seq=1 ttl=64 time=0.172 ms
+64 bytes from catserver.catsonly 
+(172.19.0.2): icmp_seq=2 ttl=64 time=0.079 ms
+64 bytes from catserver.catsonly 
+(172.19.0.2): icmp_seq=3 ttl=64 time=0.093 ms
+^C
+--- catserver ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2054ms    
+rtt min/avg/max/mdev = 0.079/0.114/0.172/0.042 ms
+root@80bdba4521c1:/#
+root@80bdba4521c1:/# 
+root@80bdba4521c1:/# ping dogserver
+ping: unknown host dogserver
+root@80bdba4521c1:/#
+root@80bdba4521c1:/# 
+
+
+
+LEGACY LINKING
+
+PC 1
+
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ docker run --rm -ti -e SECRET=iloverunningcommands --name catserver ubuntu:14.04 bash
+root@8e289365ce1c:/# nc -lp 1234
+woot
+meow
+^C
+root@8e289365ce1c:/# nc dogserver 4321
+nc: getaddrinfo: Name or service not known
+root@8e289365ce1c:/# 
+root@8e289365ce1c:/# 
+root@8e289365ce1c:/# env
+HOSTNAME=8e289365ce1c
+SECRET=iloverunningcommands
+TERM=xterm
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+PWD=/
+SHLVL=1
+HOME=/root
+LESSOPEN=| /usr/bin/lesspipe %s
+LESSCLOSE=/usr/bin/lesspipe %s %s
+_=/usr/bin/env
+root@8e289365ce1c:/#
+
+
+azureuser@ubuntu-vm:~$ docker run --rm -ti 
+--link catserver --name dogserver ubuntu:14.04 bash
+root@739e52849c23:/# nc catserver 1234
+woot
+meow
+root@739e52849c23:/# nc -lp 4321
+^C
+root@739e52849c23:/# 
+root@739e52849c23:/# 
+root@739e52849c23:/# env
+HOSTNAME=739e52849c23
+TERM=xterm
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+PWD=/
+SHLVL=1
+HOME=/root
+LESSOPEN=| /usr/bin/lesspipe %s
+CATSERVER_NAME=/dogserver/catserver        
+CATSERVER_ENV_SECRET=iloverunningcommands  
+LESSCLOSE=/usr/bin/lesspipe %s %s
+_=/usr/bin/env
+root@739e52849c23:/#
+
+
+
