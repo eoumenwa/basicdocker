@@ -732,3 +732,1720 @@ This displays the conent saved in notes.txt
 azureuser@ubuntu-vm:~/example$ 
 
 
+
+oeume@KRISOLIZ-SFFHPDPC MINGW64 ~/Downloads   
+$ ssh -i ubuntu-vm_key.pem azureuser@20.124.104.28
+Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 5.11.0-1021-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com    
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Sun Nov 28 11:09:58 UTC 2021
+
+  System load:  0.08              Processes:  
+              130
+  Usage of /:   8.0% of 28.90GB   Users logged in:          0
+  Memory usage: 4%                IPv4 address for docker0: 172.17.0.1
+  Swap usage:   0%                IPv4 address for eth0:    10.0.0.4
+
+
+15 updates can be applied immediately.        
+To see these additional updates run: apt list 
+--upgradable
+
+
+Last login: Sat Nov 27 11:26:23 2021 from 73.152.119.181
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$ docker run --rm -ti ubuntu sleep 5
+azureuser@ubuntu-vm:~$ docker run -ti ubuntu bash -c "sleep 3; echo all done"
+all done
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$ docker run -d -ti ubuntu bash
+f5a831981abeffb8c7e5ed41f3570918287fdcd0d58f65ddd90d5f0a95791299
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$ docker exec -ti eloquent_colden bash
+root@f5a831981abe:/# touch foo
+root@f5a831981abe:/# ls
+bin   dev  foo   lib    lib64   media  opt   root  sbin  sys  usr
+boot  etc  home  lib32  libx32  mnt    proc  run   srv   tmp  var
+root@f5a831981abe:/# exit
+azureuser@ubuntu-vm:~$ docker exec -ti eloquent_colden bash
+root@f5a831981abe:/# azureuser@ubuntu-vm:~$
+
+
+Terminal 2
+
+
+azureuser@ubuntu-vm:~$ docker ps -al
+CONTAINER ID   IMAGE     COMMAND   CREATED         STATUS         PORTS     NAMES
+f5a831981abe   ubuntu    "bash"    2 minutes ago   Up 
+2 minutes             eloquent_colden
+azureuser@ubuntu-vm:~$ docker attach eloquent_colden  
+root@f5a831981abe:/#
+root@f5a831981abe:/#
+root@f5a831981abe:/#
+root@f5a831981abe:/#
+root@f5a831981abe:/#
+root@f5a831981abe:/# ls
+bin   etc   lib    libx32  opt   run   sys  var       
+boot  foo   lib32  media   proc  sbin  tmp
+dev   home  lib64  mnt     root  srv   usr
+root@f5a831981abe:/#
+root@f5a831981abe:/#
+root@f5a831981abe:/# exit
+azureuser@ubuntu-vm:~$ 
+
+
+Last login: Sun Nov 28 15:46:10 2021 from 73.152.119.181
+azureuser@ubuntu-vm:~$ docker run --name example -d ubuntu -c "lose /etc/password"
+docker: Error response from daemon: Conflict. The container name "/example" is already in use by container "ed359e86fa42c9a920284f55ce0e2f2a80426623384f57a7f7c3ec484ef61a52". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ docker run --name example -d ubuntu -c "lose /etc/password"
+docker: Error response from daemon: Conflict. The container name "/example" is already in use by container "ed359e86fa42c9a920284f55ce0e2f2a80426623384f57a7f7c3ec484ef61a52". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ docker logs example 
+azureuser@ubuntu-vm:~$ echo $FORMAT
+
+azureuser@ubuntu-vm:~$ source ./reformat.sh
+azureuser@ubuntu-vm:~$ echo $FORMAT
+\nID\t{{.ID}}\nIMAGE\t{{.Image}}\nCOMMAND\t{{.Command}}\nCREATED\t{{.RunningFor}}\nSTATUS\t{{.Status}}\nPORTS\t{{.Ports}}\nNAMES\t{{.Names}}\n
+azureuser@ubuntu-vm:~$ docker ps -al --format $FORMAT
+
+ID      ed359e86fa42
+IMAGE   ubuntu
+COMMAND "-c 'lose /etc/passw…"
+CREATED 4 hours ago
+STATUS  Created
+PORTS
+NAMES   example
+
+azureuser@ubuntu-vm:~$ docker ps -l --format $FORMAT
+
+ID      ed359e86fa42
+IMAGE   ubuntu
+COMMAND "-c 'lose /etc/passw…"
+CREATED 4 hours ago
+STATUS  Created
+PORTS
+NAMES   example
+
+azureuser@ubuntu-vm:~$ docker ps -al --format $FORMAT
+
+ID      ed359e86fa42
+IMAGE   ubuntu
+COMMAND "-c 'lose /etc/passw…"
+CREATED 4 hours ago
+STATUS  Created
+PORTS
+NAMES   example
+
+azureuser@ubuntu-vm:~$ docker ps -a --format $FORMAT
+
+ID      ed359e86fa42
+IMAGE   ubuntu
+COMMAND "-c 'lose /etc/passw…"
+CREATED 4 hours ago
+STATUS  Created
+PORTS
+NAMES   example
+
+
+ID      f5a831981abe
+IMAGE   ubuntu
+COMMAND "bash"
+CREATED 5 hours ago
+STATUS  Exited (0) 4 hours ago
+PORTS
+NAMES   eloquent_colden
+
+
+ID      1b9aeb7b76a3
+IMAGE   ubuntu
+COMMAND "bash -c 'sleep 3; e…"
+CREATED 5 hours ago
+STATUS  Exited (0) 5 hours ago
+PORTS
+NAMES   nice_stonebraker
+
+
+ID      3484153bfff8
+IMAGE   484ec39d2458
+COMMAND "/bin/sh -c 'yes | a…"
+CREATED 28 hours ago
+STATUS  Exited (100) 28 hours ago
+PORTS
+NAMES   quizzical_tereshkova
+
+
+ID      2be16b716870
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 28 hours ago
+STATUS  Exited (1) 28 hours ago
+PORTS
+NAMES   romantic_buck
+
+
+ID      6f82bad90852
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 28 hours ago
+STATUS  Exited (1) 28 hours ago
+PORTS
+NAMES   gifted_fermi
+
+
+ID      a98a9f4c2c89
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 28 hours ago
+STATUS  Exited (1) 28 hours ago
+PORTS
+NAMES   tender_heisenberg
+
+
+ID      1a12eaaa6328
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 29 hours ago
+STATUS  Exited (100) 29 hours ago
+PORTS
+NAMES   modest_cerf
+
+
+ID      f9cf32365b09
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 29 hours ago
+STATUS  Exited (100) 29 hours ago
+PORTS
+NAMES   reverent_brown
+
+
+ID      16eb6dcc1b8d
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 29 hours ago
+STATUS  Exited (1) 29 hours ago
+PORTS
+NAMES   boring_goldberg
+
+
+ID      ab9a6ff67ac0
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 29 hours ago
+STATUS  Exited (100) 29 hours ago
+PORTS
+NAMES   epic_napier
+
+
+ID      a48521d032e7
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 29 hours ago
+STATUS  Exited (1) 29 hours ago
+PORTS
+NAMES   vigilant_ramanujan
+
+
+ID      b808acc1180b
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 29 hours ago
+STATUS  Exited (1) 29 hours ago
+PORTS
+NAMES   elegant_proskuriakova
+
+
+ID      2aa93973438e
+IMAGE   my-new-image-2
+COMMAND "bash"
+CREATED 2 days ago
+STATUS  Exited (129) 2 days ago
+PORTS
+NAMES   xenodochial_mccarthy
+
+
+ID      4a668fd8935a
+IMAGE   a63d46cfeb1e
+COMMAND "bash"
+CREATED 2 days ago
+STATUS  Exited (0) 2 days ago
+PORTS
+NAMES   naughty_moore
+
+
+ID      3c272caae2e1
+IMAGE   ubuntu
+COMMAND "bash"
+CREATED 2 days ago
+STATUS  Exited (0) 2 days ago
+PORTS
+NAMES   stupefied_leavitt
+
+
+ID      832fc9b0f341
+IMAGE   ubuntu:latest
+COMMAND "bash"
+CREATED 2 days ago
+STATUS  Exited (129) 2 days ago
+PORTS
+NAMES   hungry_brown
+
+
+ID      cd05574cf082
+IMAGE   ubuntu:latest
+COMMAND "bash"
+CREATED 2 days ago
+STATUS  Exited (0) 2 days ago
+PORTS
+NAMES   hardcore_joliot
+
+
+ID      8050290dd8e6
+IMAGE   ubuntu:latest
+COMMAND "bash"
+CREATED 2 days ago
+STATUS  Exited (127) 2 days ago
+PORTS
+NAMES   happy_wu
+
+
+ID      6d7eca1e7b24
+IMAGE   ubuntu:latest
+COMMAND "bash"
+CREATED 2 days ago
+STATUS  Exited (0) 2 days ago
+PORTS
+NAMES   heuristic_leavitt
+
+
+ID      e7da0e4933e3
+IMAGE   hello-world
+COMMAND "/hello"
+CREATED 9 days ago
+STATUS  Exited (0) 9 days ago
+PORTS
+NAMES   adoring_visvesvaraya
+
+
+ID      c22f9b018077
+IMAGE   hello-world
+COMMAND "/hello"
+CREATED 9 days ago
+STATUS  Exited (0) 9 days ago
+PORTS
+NAMES   trusting_albattani
+
+azureuser@ubuntu-vm:~$ docker logs hungry_brown
+root@832fc9b0f341:/# ls
+bin  boot  dev  etc  home  lib  lib32  lib64  libx32  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@832fc9b0f341:/# azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ docker run -ti ubuntu bash
+root@4f385ee130d5:/# azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ docker rm confident_brattain 
+confident_brattain
+azureuser@ubuntu-vm:~$ 
+
+
+
+
+Troubleshooting shell script for environmental variable
+
+
+
+oeume@KRISOLIZ-SFFHPDPC MINGW64 ~/Downloads/docker
+~/Downloads/docker
+$  ssh -i ubuntu-vm_key.pem azureuser@20.124.104.28
+Warning: Identity file ubuntu-vm_key.pem not accessible: No such file or directory.
+azureuser@20.124.104.28: Permission denied (publickey).
+
+oeume@KRISOLIZ-SFFHPDPC MINGW64 
+~/Downloads/docker
+$ cd ..
+
+oeume@KRISOLIZ-SFFHPDPC MINGW64 
+~/Downloads
+$  ssh -i ubuntu-vm_key.pem azureuser@20.124.104.28
+Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 5.11.0-1021-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+n
+azureuser@ubuntu-vm:~$ echo $FORMAT
+
+azureuser@ubuntu-vm:~$ echo $FORMAT
+
+azureuser@ubuntu-vm:~$ vim reformat
+azureuser@ubuntu-vm:~$ vim reformat.bash
+azureuser@ubuntu-vm:~$ vim reformat.bash
+azureuser@ubuntu-vm:~$ pwd
+/home/azureuser
+azureuser@ubuntu-vm:~$  reformat.bash
+reformat.bash: command not foundazureuser@ubuntu-vm:~$ ./ reformat.bash
+-bash: ./: Is a directory
+azureuser@ubuntu-vm:~$ ./reformat.bash
+-bash: ./reformat.bash: Permission denied
+azureuser@ubuntu-vm:~$ ls -la reformat.bash 
+-rw-rw-r-- 1 azureuser azureuser 157 Nov 28 12:21 reformat.bash 
+azureuser@ubuntu-vm:~$ chmod u+xchmod: missing operand after ‘u+x’
+Try 'chmod --help' for more information.
+azureuser@ubuntu-vm:~$ chmod u + x
+chmod: invalid mode: ‘u’
+Try 'chmod --help' for more information.
+azureuser@ubuntu-vm:~$ chmod u+x
+FORMAT="\nID\t{{.ID}}\nIMAGE\t{{.Image}}\nCOMMAND\t{ reformat.bash
+azureuser@ubuntu-vm:~$ ls -la reformat.bash
+-rwxrw-r-- 1 azureuser azureuser 157 Nov 28 12:21 reformat.bash
+azureuser@ubuntu-vm:~$ chmod 0755 reformat.bash     
+azureuser@ubuntu-vm:~$ ls -la reformat.bash
+-rwxr-xr-x 1 azureuser azureuser 157 Nov 28 12:21 reformat.bash
+azureuser@ubuntu-vm:~$ chmod 0700 reformat.bash     
+azureuser@ubuntu-vm:~$ ls -la reformat.bash
+-rwx------ 1 azureuser azureuser 157 Nov 28 12:21 reformat.bash
+azureuser@ubuntu-vm:~$ chmod go+rx reformat.bash    
+azureuser@ubuntu-vm:~$ ls -la reformat.bash
+-rwxr-xr-x 1 azureuser azureuser 157 Nov 28 12:21 reformat.bash
+azureuser@ubuntu-vm:~$ ./reformat.bash
+./reformat.bash: line 1: n: command not found       
+./reformat.bash: line 2: rt: command not found      
+azureuser@ubuntu-vm:~$ vim reformat.bash
+azureuser@ubuntu-vm:~$ car reformat.bash 
+
+Command 'car' not found, but can be installed with:
+
+sudo apt install ucommon-utils
+
+azureuser@ubuntu-vm:~$ cat reformat.bash 
+FORMAT="\nID\t{{.ID}}\nIMAGE\t{{.Image}}\nCOMMAND\t{{.Command}}\nCREATED\t{{.RunningFor}}\nSTATUS\t{{.Status}}\nPORTS\t{{.Ports}}\nNAMES\t{{.Names}}\n"     
+azureuser@ubuntu-vm:~$ ./reformat.bash
+azureuser@ubuntu-vm:~$ echo $FORMAT
+
+azureuser@ubuntu-vm:~$ ./reformat.bash
+azureuser@ubuntu-vm:~$ echo $FORMAT
+
+azureuser@ubuntu-vm:~$ client_loop: send disconnect: Connection reset by peer
+
+oeume@KRISOLIZ-SFFHPDPC MINGW64 ~/Downloads
+euser@20.124.104.28_key.pem azure
+Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 5.11.0-1021-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com  
+ * Support:        https://ubuntu.com/advantage     
+
+  System information as of Sun Nov 28 15:35:23 UTC 2021
+
+#!/bin/bash
+  System load:  0.0               Processes:        
+        133
+  Usage of /:   8.0% of 28.90GB   Users logged in:  
+        1
+  Memory usage: 4%                IPv4 address for docker0: 172.17.0.1
+  Swap usage:   0%                IPv4 address for eth0:    10.0.0.4
+
+
+15 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+azureuser@ubuntu-vm:~$ docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS 
+   PORTS     NAMES
+azureuser@ubuntu-vm:~$ docker ps -al
+CONTAINER ID   IMAGE     COMMAND                  CREATED       STATUS    PORTS     NAMES
+ed359e86fa42   ubuntu    "-c 'lose /etc/passw…"   4 
+hours ago   Created             example
+azureuser@ubuntu-vm:~$ docker ps -al --format $FORMAT
+
+ID      ed359e86fa42
+IMAGE   ubuntu
+COMMAND "-c 'lose /etc/passw…"
+CREATED 4 hours ago
+STATUS  Created
+PORTS
+NAMES   example
+
+azureuser@ubuntu-vm:~$ docker ps -a --format $FORMAT
+ID      ed359e86fa42
+IMAGE   ubuntu
+COMMAND "-c 'lose /etc/passw…"
+CREATED 4 hours ago
+STATUS  Created
+PORTS
+NAMES   example
+
+
+ID      f5a831981abe
+IMAGE   ubuntu
+COMMAND "bash"
+CREATED 4 hours ago
+STATUS  Exited (0) 4 hours ago
+PORTS
+NAMES   eloquent_colden
+
+
+ID      1b9aeb7b76a3
+IMAGE   ubuntu
+COMMAND "bash -c 'sleep 3; e…"
+CREATED 4 hours ago
+STATUS  Exited (0) 4 hours ago
+PORTS
+NAMES   nice_stonebraker
+
+
+ID      3484153bfff8
+IMAGE   484ec39d2458
+COMMAND "/bin/sh -c 'yes | a…"
+CREATED 28 hours ago
+STATUS  Exited (100) 28 hours ago
+PORTS
+NAMES   quizzical_tereshkova
+
+
+ID      2be16b716870
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 28 hours ago
+STATUS  Exited (1) 28 hours ago
+PORTS
+NAMES   romantic_buck
+
+
+ID      6f82bad90852
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 28 hours ago
+STATUS  Exited (1) 28 hours ago
+PORTS
+NAMES   gifted_fermi
+
+
+ID      a98a9f4c2c89
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 28 hours ago
+STATUS  Exited (1) 28 hours ago
+PORTS
+NAMES   tender_heisenberg
+
+
+ID      1a12eaaa6328
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 28 hours ago
+STATUS  Exited (100) 28 hours ago
+PORTS
+NAMES   modest_cerf
+
+
+ID      f9cf32365b09
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 28 hours ago
+STATUS  Exited (100) 28 hours ago
+PORTS
+NAMES   reverent_brown
+
+
+ID      16eb6dcc1b8d
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 28 hours ago
+STATUS  Exited (1) 28 hours ago
+PORTS
+NAMES   boring_goldberg
+
+
+ID      ab9a6ff67ac0
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 28 hours ago
+STATUS  Exited (100) 28 hours ago
+PORTS
+NAMES   epic_napier
+
+
+ID      a48521d032e7
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 28 hours ago
+STATUS  Exited (1) 28 hours ago
+PORTS
+NAMES   vigilant_ramanujan
+
+
+ID      b808acc1180b
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 29 hours ago
+STATUS  Exited (1) 29 hours ago
+PORTS
+NAMES   elegant_proskuriakova
+
+
+ID      2aa93973438e
+IMAGE   my-new-image-2
+COMMAND "bash"
+CREATED 2 days ago
+STATUS  Exited (129) 2 days ago
+PORTS
+NAMES   xenodochial_mccarthy
+
+
+ID      4a668fd8935a
+IMAGE   a63d46cfeb1e
+COMMAND "bash"
+CREATED 2 days ago
+STATUS  Exited (0) 2 days ago
+PORTS
+NAMES   naughty_moore
+
+
+ID      3c272caae2e1
+IMAGE   ubuntu
+COMMAND "bash"
+CREATED 2 days ago
+STATUS  Exited (0) 2 days ago
+PORTS
+NAMES   stupefied_leavitt
+
+
+ID      832fc9b0f341
+IMAGE   ubuntu:latest
+COMMAND "bash"
+CREATED 2 days ago
+STATUS  Exited (129) 2 days ago
+PORTS
+NAMES   hungry_brown
+
+
+ID      cd05574cf082
+IMAGE   ubuntu:latest
+COMMAND "bash"
+CREATED 2 days ago
+STATUS  Exited (0) 2 days ago
+PORTS
+NAMES   hardcore_joliot
+
+
+ID      8050290dd8e6
+IMAGE   ubuntu:latest
+COMMAND "bash"
+CREATED 2 days ago
+STATUS  Exited (127) 2 days ago
+PORTS
+NAMES   happy_wu
+azureuser@ubuntu-vm:~$ client_loop: send disconnect: Connection reset by peer
+
+oeume@KRISOLIZ-SFFHPDPC MINGW64 ~/Downloads
+azureuser@ubuntu-vm:~$ docker log happy_wu
+docker: 'log' is not a docker command.
+See 'docker --help'
+azureuser@ubuntu-vm:~$ docker ps -a --format $FORMAT
+ID      4f385ee130d5
+IMAGE   ubuntu
+COMMAND "bash"
+CREATED 16 seconds ago        
+STATUS  Up 15 seconds
+PORTS
+NAMES   confident_brattain    
+
+
+ID      ed359e86fa42
+IMAGE   ubuntu
+COMMAND "-c 'lose /etc/passw…"
+CREATED 4 hours ago
+STATUS  Created
+PORTS
+NAMES   example
+
+
+ID      f5a831981abe
+IMAGE   ubuntu
+COMMAND "bash"
+CREATED 5 hours ago
+STATUS  Exited (0) 4 hours ago
+PORTS
+NAMES   eloquent_colden       
+
+
+ID      1b9aeb7b76a3
+IMAGE   ubuntu
+COMMAND "bash -c 'sleep 3; e…"
+CREATED 5 hours ago
+STATUS  Exited (0) 5 hours ago
+PORTS
+NAMES   nice_stonebraker
+
+
+ID      3484153bfff8
+IMAGE   484ec39d2458
+COMMAND "/bin/sh -c 'yes | a…"
+CREATED 28 hours ago
+STATUS  Exited (100) 28 hours ago
+PORTS
+NAMES   quizzical_tereshkova
+
+
+ID      2be16b716870
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 28 hours ago
+STATUS  Exited (1) 28 hours ago
+PORTS
+NAMES   romantic_buck
+
+
+ID      6f82bad90852
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 28 hours ago
+STATUS  Exited (1) 28 hours ago
+PORTS
+NAMES   gifted_fermi
+
+
+ID      a98a9f4c2c89
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 29 hours ago
+STATUS  Exited (1) 29 hours ago
+PORTS
+NAMES   tender_heisenberg
+
+
+ID      1a12eaaa6328
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 29 hours ago
+STATUS  Exited (100) 29 hours ago
+PORTS
+NAMES   modest_cerf
+
+
+ID      f9cf32365b09
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 29 hours ago
+STATUS  Exited (100) 29 hours ago
+PORTS
+NAMES   reverent_brown
+
+
+ID      16eb6dcc1b8d
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 29 hours ago
+STATUS  Exited (1) 29 hours ago
+PORTS
+NAMES   boring_goldberg
+
+
+ID      ab9a6ff67ac0
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 29 hours ago
+STATUS  Exited (100) 29 hours ago
+PORTS
+NAMES   epic_napier
+
+
+ID      a48521d032e7
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 29 hours ago
+STATUS  Exited (1) 29 hours ago
+PORTS
+NAMES   vigilant_ramanujan
+
+
+ID      b808acc1180b
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 29 hours ago
+STATUS  Exited (1) 29 hours ago
+PORTS
+NAMES   elegant_proskuriakova
+
+
+ID      2aa93973438e
+IMAGE   my-new-image-2
+COMMAND "bash"
+CREATED 2 days ago
+STATUS  Exited (129) 2 days ago
+PORTS
+NAMES   xenodochial_mccarthy
+
+
+ID      4a668fd8935a
+IMAGE   a63d46cfeb1e
+COMMAND "bash"
+CREATED 2 days ago
+STATUS  Exited (0) 2 days ago
+PORTS
+NAMES   naughty_moore
+
+
+ID      3c272caae2e1
+IMAGE   ubuntu
+COMMAND "bash"
+CREATED 2 days ago
+STATUS  Exited (0) 2 days ago
+PORTS
+NAMES   stupefied_leavitt
+
+
+ID      832fc9b0f341
+IMAGE   ubuntu:latest
+COMMAND "bash"
+CREATED 2 days ago
+STATUS  Exited (129) 2 days ago
+PORTS
+NAMES   hungry_brown
+
+
+ID      cd05574cf082
+IMAGE   ubuntu:latest
+COMMAND "bash"
+CREATED 2 days ago
+STATUS  Exited (0) 2 days ago
+PORTS
+NAMES   hardcore_joliot
+
+
+ID      8050290dd8e6
+IMAGE   ubuntu:latest
+COMMAND "bash"
+CREATED 2 days ago
+STATUS  Exited (127) 2 days ago
+PORTS
+NAMES   happy_wu
+azureuser@ubuntu-vm:~$ docker ps --format $FORMAT   
+
+ID      4f385ee130d5      
+IMAGE   ubuntu
+COMMAND "bash"
+CREATED 30 seconds ago    
+STATUS  Up 29 seconds     
+PORTS
+NAMES   confident_brattain
+
+azureuser@ubuntu-vm:~$ docker kill confident_brattain
+confident_brattain
+azureuser@ubuntu-vm:~$ docker ps -l --format $FORMAT
+ID      4f385ee130d5
+IMAGE   ubuntu
+COMMAND "bash"
+CREATED About a minute ago
+STATUS  Exited (137) 23 seconds ago
+PORTS
+NAMES   confident_brattain
+
+azureuser@ubuntu-vm:~$ docker ps -l --format $FORMAT
+ID      ed359e86fa42
+IMAGE   ubuntu
+COMMAND "-c 'lose /etc/passw…"
+CREATED 4 hours ago
+STATUS  Created
+PORTS
+NAMES   example
+
+azureuser@ubuntu-vm:~$
+
+
+Exposing a specific port
+
+
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ docker run --name example -d ubuntu -c "lose /etc/password"
+docker: Error response from daemon: Conflict. The container name "/example" is already in use by container "ed359e86fa42c9a920284f55ce0e2f2a80426623384f57a7f7c3ec484ef61a52". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ docker logs example 
+azureuser@ubuntu-vm:~$ echo $FORMAT
+
+azureuser@ubuntu-vm:~$ source ./reformat.sh
+azureuser@ubuntu-vm:~$ echo $FORMAT
+\nID\t{{.ID}}\nIMAGE\t{{.Image}}\nCOMMAND\t{{.Command}}\nCREATED\t{{.RunningFor}}\nSTATUS\t{{.Status}}\nPORTS\t{{.Ports}}\nNAMES\t{{.Names}}\n
+azureuser@ubuntu-vm:~$ docker ps -al --format $FORMAT
+
+ID      ed359e86fa42
+IMAGE   ubuntu
+COMMAND "-c 'lose /etc/passw…"
+CREATED 4 hours ago
+STATUS  Created
+PORTS
+NAMES   example
+
+azureuser@ubuntu-vm:~$ docker ps -l --format $FORMAT
+
+ID      ed359e86fa42
+IMAGE   ubuntu
+COMMAND "-c 'lose /etc/passw…"
+CREATED 4 hours ago
+STATUS  Created
+PORTS
+NAMES   example
+
+azureuser@ubuntu-vm:~$ docker ps -al --format $FORMAT
+
+ID      ed359e86fa42
+IMAGE   ubuntu
+COMMAND "-c 'lose /etc/passw…"
+CREATED 4 hours ago
+STATUS  Created
+PORTS
+NAMES   example
+
+azureuser@ubuntu-vm:~$ docker ps -a --format $FORMAT
+
+ID      ed359e86fa42
+IMAGE   ubuntu
+COMMAND "-c 'lose /etc/passw…"
+CREATED 4 hours ago
+STATUS  Created
+PORTS
+NAMES   example
+
+
+ID      f5a831981abe
+IMAGE   ubuntu
+COMMAND "bash"
+CREATED 5 hours ago
+STATUS  Exited (0) 4 hours ago
+PORTS
+NAMES   eloquent_colden
+
+
+ID      1b9aeb7b76a3
+IMAGE   ubuntu
+COMMAND "bash -c 'sleep 3; e…"
+CREATED 5 hours ago
+STATUS  Exited (0) 5 hours ago
+PORTS
+NAMES   nice_stonebraker
+
+
+ID      3484153bfff8
+IMAGE   484ec39d2458
+COMMAND "/bin/sh -c 'yes | a…"
+CREATED 28 hours ago
+STATUS  Exited (100) 28 hours ago
+PORTS
+NAMES   quizzical_tereshkova
+
+
+ID      2be16b716870
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 28 hours ago
+STATUS  Exited (1) 28 hours ago
+PORTS
+NAMES   romantic_buck
+
+
+ID      6f82bad90852
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 28 hours ago
+STATUS  Exited (1) 28 hours ago
+PORTS
+NAMES   gifted_fermi
+
+
+ID      a98a9f4c2c89
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 28 hours ago
+STATUS  Exited (1) 28 hours ago
+PORTS
+NAMES   tender_heisenberg
+
+
+ID      1a12eaaa6328
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 29 hours ago
+STATUS  Exited (100) 29 hours ago
+PORTS
+NAMES   modest_cerf
+
+
+ID      f9cf32365b09
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 29 hours ago
+STATUS  Exited (100) 29 hours ago
+PORTS
+NAMES   reverent_brown
+
+
+ID      16eb6dcc1b8d
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 29 hours ago
+STATUS  Exited (1) 29 hours ago
+PORTS
+NAMES   boring_goldberg
+
+
+ID      ab9a6ff67ac0
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 29 hours ago
+STATUS  Exited (100) 29 hours ago
+PORTS
+NAMES   epic_napier
+
+
+ID      a48521d032e7
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 29 hours ago
+STATUS  Exited (1) 29 hours ago
+PORTS
+NAMES   vigilant_ramanujan
+
+
+ID      b808acc1180b
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 29 hours ago
+STATUS  Exited (1) 29 hours ago
+PORTS
+NAMES   elegant_proskuriakova
+
+
+ID      2aa93973438e
+IMAGE   my-new-image-2
+COMMAND "bash"
+CREATED 2 days ago
+STATUS  Exited (129) 2 days ago
+PORTS
+NAMES   xenodochial_mccarthy
+
+
+ID      4a668fd8935a
+IMAGE   a63d46cfeb1e
+COMMAND "bash"
+CREATED 2 days ago
+STATUS  Exited (0) 2 days ago
+PORTS
+NAMES   naughty_moore
+
+
+ID      3c272caae2e1
+IMAGE   ubuntu
+COMMAND "bash"
+CREATED 2 days ago
+STATUS  Exited (0) 2 days ago
+PORTS
+NAMES   stupefied_leavitt
+
+
+ID      832fc9b0f341
+IMAGE   ubuntu:latest
+COMMAND "bash"
+CREATED 2 days ago
+STATUS  Exited (129) 2 days ago
+PORTS
+NAMES   hungry_brown
+
+
+ID      cd05574cf082
+IMAGE   ubuntu:latest
+COMMAND "bash"
+CREATED 2 days ago
+STATUS  Exited (0) 2 days ago
+PORTS
+NAMES   hardcore_joliot
+
+
+ID      8050290dd8e6
+IMAGE   ubuntu:latest
+COMMAND "bash"
+CREATED 2 days ago
+STATUS  Exited (127) 2 days ago
+PORTS
+NAMES   happy_wu
+
+
+ID      6d7eca1e7b24
+IMAGE   ubuntu:latest
+COMMAND "bash"
+CREATED 2 days ago
+STATUS  Exited (0) 2 days ago
+PORTS
+NAMES   heuristic_leavitt
+
+
+ID      e7da0e4933e3
+IMAGE   hello-world
+COMMAND "/hello"
+CREATED 9 days ago
+STATUS  Exited (0) 9 days ago
+PORTS
+NAMES   adoring_visvesvaraya
+
+
+ID      c22f9b018077
+IMAGE   hello-world
+COMMAND "/hello"
+CREATED 9 days ago
+STATUS  Exited (0) 9 days ago
+PORTS
+NAMES   trusting_albattani
+
+azureuser@ubuntu-vm:~$ docker logs hungry_brown
+root@832fc9b0f341:/# ls
+bin  boot  dev  etc  home  lib  lib32  lib64  libx32  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@832fc9b0f341:/# azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ docker run -ti ubuntu bash
+root@4f385ee130d5:/# azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ docker rm confident_brattain 
+confident_brattain
+azureuser@ubuntu-vm:~$ Connection to 20.124.104.28 closed by remote host.
+Connection to 20.124.104.28 closed.
+
+oeume@KRISOLIZ-SFFHPDPC MINGW64 ~/Downloads
+$ ssh -i ubuntu-vm_key.pem azureuser@20.124.104.28
+Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 5.11.0-1021-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+azureuser@ubuntu-vm:~$ docker run --rm -ti - p 45678:45678 -p45679:45679 --name echo-server ubuntu:20.04 bash
+docker: invalid reference format.
+See 'docker run --help'.
+azureuser@ubuntu-vm:~$ docker run --rm -ti - p 45678:45678 -p45679:45679 --name echo-server ubuntu bash
+docker: invalid reference format.
+See 'docker run --help'.
+azureuser@ubuntu-vm:~$ docker run --rm -ti - p 45678:45678 -p 45679:45679 --name echo-server ubuntu:20.04 bash
+docker: invalid reference format.
+See 'docker run --help'.
+azureuser@ubuntu-vm:~$ docker run --rm -ti - p 45678:45678 -p 45679:45679 --name echo-server ubuntu:bash
+docker: invalid reference format.
+See 'docker run --help'.
+azureuser@ubuntu-vm:~$ docker run --rm -ti -p 45678:45678 -p 45679:45679 --name echo-server ubuntu:20.04 bash
+Unable to find image 'ubuntu:20.04' locally
+20.04: Pulling from library/ubuntu
+Digest: sha256:626ffe58f6e7566e00254b638eb7e0f3b11d4da9675088f4781a50ae288f3322
+Status: Downloaded newer image for ubuntu:20.04
+root@675787ab4595:/# azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ docker run --rm -ti -p 45678:45678 -p 45679:45679 --name echo-server ubuntu bash
+root@bdfdd8ab55e4:/# nc -lp 45678 | nc -lp 45679
+bash: nc: command not found
+bash: nc: command not found
+root@bdfdd8ab55e4:/#
+root@bdfdd8ab55e4:/# 
+root@bdfdd8ab55e4:/# azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ docker run --rm -ti -p 45678:45678 -p 45679:45679 --name echo-server ubuntu:14.04 bash
+Unable to find image 'ubuntu:14.04' locally
+14.04: Pulling from library/ubuntu
+2e6e20c8e2e6: Pull complete
+0551a797c01d: Pull complete
+512123a864da: Pull complete
+Digest: sha256:60840958b25b5947b11d7a274274dc48ab32a2f5d18527f5dae2962b64269a3a
+Status: Downloaded newer image for ubuntu:14.04
+root@8801e2314d06:/# nc -lp 45678 | nc -lp 45678
+nc: listen: Address already in use
+lets go!
+lets go2
+
+^C
+root@8801e2314d06:/# nc -lp 45678 | nc -lp 45679
+root@8801e2314d06:/# ^C
+root@8801e2314d06:/# ps -ef
+UID          PID    PPID  C STIME TTY          TIME CMD
+root           1       0  0 00:53 pts/0    00:00:00 bash
+root          20       1  0 00:59 pts/0    00:00:00 ps -ef
+root@8801e2314d06:/# ps -ef grep nc
+error: process ID list syntax error
+
+Usage:
+ ps [options]
+
+ Try 'ps --help <simple|list|output|threads|misc|all>'
+  or 'ps --help <s|l|o|t|m|a>'
+ for additional help text.
+
+For more details see ps(1).
+root@8801e2314d06:/# nc -lp 45678 | nc -lp 45679
+hello world
+hello world from outward port
+root@8801e2314d06:/# ^C
+root@8801e2314d06:/# 
+root@8801e2314d06:/# 
+root@8801e2314d06:/# nc -lp 45678 | nc -lp 45679
+
+
+Now am typing from another container
+
+Ob
+Obviously this is the same as the master container where I started from
+
+^C
+root@8801e2314d06:/# ^C
+root@8801e2314d06:/# exit
+exit
+azureuser@ubuntu-vm:~$ docker run --rm -ti -p 45678 -p 45679 --name echo-server ubuntu:14.04 bash
+root@c98e3e17b6d9:/# nc -lp 45678 | nc -lp 45679
+
+
+^C
+root@c98e3e17b6d9:/# exit
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ docker run --rm -ti -p 45678/udp --name echo-server ubuntu:14.04 bash
+root@e35b1ee086e9:/# nc -ulp 45678
+Hello world from udp perspective in docker
+
+
+
+
+oeume@KRISOLIZ-SFFHPDPC MINGW64 ~/Downloads
+azureuser@ubuntu-vm:~$ docker log happy_wu
+docker: 'log' is not a docker command.
+See 'docker --help'
+azureuser@ubuntu-vm:~$ docker ps -a --format $FO
+ID      4f385ee130d5
+IMAGE   ubuntu
+COMMAND "bash"
+CREATED 16 seconds ago        
+STATUS  Up 15 seconds
+PORTS
+NAMES   confident_brattain    
+
+
+ID      ed359e86fa42
+IMAGE   ubuntu
+COMMAND "-c 'lose /etc/passw…"
+CREATED 4 hours ago
+STATUS  Created
+PORTS
+NAMES   example
+
+
+ID      f5a831981abe
+IMAGE   ubuntu
+COMMAND "bash"
+CREATED 5 hours ago
+STATUS  Exited (0) 4 hours ago
+PORTS
+NAMES   eloquent_colden       
+
+
+ID      1b9aeb7b76a3
+IMAGE   ubuntu
+COMMAND "bash -c 'sleep 3; e…"
+CREATED 5 hours ago
+STATUS  Exited (0) 5 hours ago
+PORTS
+NAMES   nice_stonebraker
+
+
+ID      3484153bfff8
+IMAGE   484ec39d2458
+COMMAND "/bin/sh -c 'yes | a…"
+CREATED 28 hours ago
+STATUS  Exited (100) 28 hours ago
+PORTS
+NAMES   quizzical_tereshkova
+
+
+ID      2be16b716870
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 28 hours ago
+STATUS  Exited (1) 28 hours ago
+PORTS
+NAMES   romantic_buck
+
+
+ID      6f82bad90852
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 28 hours ago
+STATUS  Exited (1) 28 hours ago
+PORTS
+NAMES   gifted_fermi
+
+
+ID      a98a9f4c2c89
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 29 hours ago
+STATUS  Exited (1) 29 hours ago
+PORTS
+NAMES   tender_heisenberg
+
+
+ID      1a12eaaa6328
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 29 hours ago
+STATUS  Exited (100) 29 hours ago
+PORTS
+NAMES   modest_cerf
+
+
+ID      f9cf32365b09
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 29 hours ago
+STATUS  Exited (100) 29 hours ago
+PORTS
+NAMES   reverent_brown
+
+
+ID      16eb6dcc1b8d
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 29 hours ago
+STATUS  Exited (1) 29 hours ago
+PORTS
+NAMES   boring_goldberg
+
+
+ID      ab9a6ff67ac0
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 29 hours ago
+STATUS  Exited (100) 29 hours ago
+PORTS
+NAMES   epic_napier
+
+
+ID      a48521d032e7
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 29 hours ago
+STATUS  Exited (1) 29 hours ago
+PORTS
+NAMES   vigilant_ramanujan
+
+
+ID      b808acc1180b
+IMAGE   913ff2e46b29
+COMMAND "/bin/sh -c 'apt-get…"
+CREATED 29 hours ago
+STATUS  Exited (1) 29 hours ago
+PORTS
+NAMES   elegant_proskuriakova
+
+
+ID      2aa93973438e
+IMAGE   my-new-image-2
+COMMAND "bash"
+CREATED 2 days ago
+STATUS  Exited (129) 2 days ago
+PORTS
+NAMES   xenodochial_mccarthy
+
+
+ID      4a668fd8935a
+IMAGE   a63d46cfeb1e
+COMMAND "bash"
+CREATED 2 days ago
+STATUS  Exited (0) 2 days ago
+PORTS
+NAMES   naughty_moore
+
+
+ID      3c272caae2e1
+IMAGE   ubuntu
+COMMAND "bash"
+CREATED 2 days ago
+STATUS  Exited (0) 2 days ago
+PORTS
+NAMES   stupefied_leavitt
+
+
+ID      832fc9b0f341
+IMAGE   ubuntu:latest
+COMMAND "bash"
+CREATED 2 days ago
+STATUS  Exited (129) 2 days ago
+PORTS
+NAMES   hungry_brown
+
+
+ID      cd05574cf082
+IMAGE   ubuntu:latest
+COMMAND "bash"
+CREATED 2 days ago
+STATUS  Exited (0) 2 days ago
+PORTS
+NAMES   hardcore_joliot
+
+
+ID      8050290dd8e6
+IMAGE   ubuntu:latest
+COMMAND "bash"
+CREATED 2 days ago
+STATUS  Exited (127) 2 days ago
+PORTS
+NAMES   happy_wu
+azureuser@ubuntu-vm:~$ docker ps --format $FORMA
+
+ID      4f385ee130d5      
+IMAGE   ubuntu
+COMMAND "bash"
+CREATED 30 seconds ago    
+STATUS  Up 29 seconds     
+PORTS
+NAMES   confident_brattain
+
+azureuser@ubuntu-vm:~$ docker kill confident_bran
+confident_brattain
+azureuser@ubuntu-vm:~$ docker ps -l --format $FO
+ID      4f385ee130d5
+IMAGE   ubuntu
+COMMAND "bash"
+CREATED About a minute ago
+STATUS  Exited (137) 23 seconds ago
+PORTS
+NAMES   confident_brattain
+
+azureuser@ubuntu-vm:~$ docker ps -l --format $FO
+ID      ed359e86fa42
+IMAGE   ubuntu
+COMMAND "-c 'lose /etc/passw…"
+CREATED 4 hours ago
+STATUS  Created
+PORTS
+NAMES   example
+
+azureuser@ubuntu-vm:~$ Connection to 20.124.104.losed by remote host.
+Connection to 20.124.104.28 closed.
+
+oeume@KRISOLIZ-SFFHPDPC MINGW64 ~/Downloads
+azureuser@ubuntu-vm:~$ hostname
+ubuntu-vm
+azureuser@ubuntu-vm:~$ hostnamectl
+   Static hostname: ubuntu-vm
+         Icon name: computer-vm
+           Chassis: vm
+        Machine ID: bc3fe1188f2c49a6bdacc7486d2f           Boot ID: 20f150df56544a1dae2af1d4146e    Virtualization: microsoft
+  Operating System: Ubuntu 20.04.3 LTS     
+            Kernel: Linux 5.11.0-1021-azure
+      Architecture: x86-64
+azureuser@ubuntu-vm:~$ docker ps -l --format $FOflag needs an argument: --format
+See 'docker ps --help'.
+azureuser@ubuntu-vm:~$ echo $FORMAT
+
+azureuser@ubuntu-vm:~$ source ./reformat.sh
+azureuser@ubuntu-vm:~$ echo $FORMAT
+\nID\t{{.ID}}\nIMAGE\t{{.Image}}\nCOMMAND\t{{.Cod}}\nCREATED\t{{.RunningFor}}\nSTATUS\t{{.StatusPORTS\t{{.Ports}}\nNAMES\t{{.Names}}\n
+azureuser@ubuntu-vm:~$ docker ps -l --format $FO
+ID      675787ab4595
+IMAGE   ubuntu:20.04
+COMMAND "bash"
+CREATED About a minute ago
+STATUS  Up About a minute
+PORTS   0.0.0.0:45678-45679->45678-45679/tcp, ::78-45679->45678-45679/tcp
+NAMES   echo-server
+
+azureuser@ubuntu-vm:~$ docker kill echo-server 
+echo-server
+azureuser@ubuntu-vm:~$ docker rm echo-server
+Error: No such container: echo-server
+azureuser@ubuntu-vm:~$ docker ps -l --format $FO
+ID      ed359e86fa42
+IMAGE   ubuntu
+COMMAND "-c 'lose /etc/passw…"
+CREATED 13 hours ago
+STATUS  Created
+PORTS
+NAMES   example
+
+azureuser@ubuntu-vm:~$ docker ps --format $FORMA
+azureuser@ubuntu-vm:~$ docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STA
+   PORTS     NAMES
+azureuser@ubuntu-vm:~$ docker ps -a
+CONTAINER ID   IMAGE            COMMAND
+     CREATED        STATUS                      S     NAMES
+ed359e86fa42   ubuntu           "-c 'lose /etc/p…"   13 hours ago   Created
+      example
+f5a831981abe   ubuntu           "bash"
+     13 hours ago   Exited (0) 13 hours ago
+      eloquent_colden
+1b9aeb7b76a3   ubuntu           "bash -c 'sleep …"   13 hours ago   Exited (0) 13 hours ago
+      nice_stonebraker
+3484153bfff8   484ec39d2458     "/bin/sh -c 'yes…"   37 hours ago   Exited (100) 37 hours ago   
+      quizzical_tereshkova
+2be16b716870   913ff2e46b29     "/bin/sh -c 'apt…"   37 hours ago   Exited (1) 37 hours ago
+      romantic_buck
+6f82bad90852   913ff2e46b29     "/bin/sh -c 'apt…"   37 hours ago   Exited (1) 37 hours ago
+      gifted_fermi
+a98a9f4c2c89   913ff2e46b29     "/bin/sh -c 'apt…"   37 hours ago   Exited (1) 37 hours ago
+      tender_heisenberg
+1a12eaaa6328   913ff2e46b29     "/bin/sh -c 'apt…"   37 hours ago   Exited (100) 37 hours ago   
+      modest_cerf
+f9cf32365b09   913ff2e46b29     "/bin/sh -c 'apt…"   37 hours ago   Exited (100) 37 hours ago   
+      reverent_brown
+16eb6dcc1b8d   913ff2e46b29     "/bin/sh -c 'apt…"   37 hours ago   Exited (1) 37 hours ago
+      boring_goldberg
+ab9a6ff67ac0   913ff2e46b29     "/bin/sh -c 'apt…"   37 hours ago   Exited (100) 37 hours ago   
+      epic_napier
+a48521d032e7   913ff2e46b29     "/bin/sh -c 'apt…"   37 hours ago   Exited (1) 37 hours ago
+      vigilant_ramanujan
+b808acc1180b   913ff2e46b29     "/bin/sh -c 'apt…"   38 hours ago   Exited (1) 38 hours agoazureuser@ubuntu-vm:~$ docker kill echo-server
+echo-server
+azureuser@ubuntu-vm:~$ docker ps -a
+CONTAINER ID   IMAGE            COMMAND   
+               CREATED        STATUS      
+                PORTS     NAMES
+ed359e86fa42   ubuntu           "-c 'lose 
+/etc/passw…"   13 hours ago   Created     
+                          example
+f5a831981abe   ubuntu           "bash"    
+               13 hours ago   Exited (0) 13 hours ago               eloquent_colden 
+1b9aeb7b76a3   ubuntu           "bash -c 'sleep 3; e…"   13 hours ago   Exited (0) 13 hours ago               nice_stonebraker3484153bfff8   484ec39d2458     "/bin/sh -c 'yes | a…"   37 hours ago   Exited (100) 37 hours ago             quizzical_tereshkova
+2be16b716870   913ff2e46b29     "/bin/sh -c 'apt-get…"   37 hours ago   Exited (1) 37 hours ago               romantic_buck   
+6f82bad90852   913ff2e46b29     "/bin/sh -c 'apt-get…"   37 hours ago   Exited (1) 37 hours ago               gifted_fermi    
+a98a9f4c2c89   913ff2e46b29     "/bin/sh -c 'apt-get…"   37 hours ago   Exited (1) 37 hours ago               tender_heisenberg
+1a12eaaa6328   913ff2e46b29     "/bin/sh -c 'apt-get…"   37 hours ago   Exited (100) 37 hours ago             modest_cerf     
+f9cf32365b09   913ff2e46b29     "/bin/sh -c 'apt-get…"   37 hours ago   Exited (100) 37 hours ago             reverent_brown  
+16eb6dcc1b8d   913ff2e46b29     "/bin/sh -c 'apt-get…"   37 hours ago   Exited (1) 37 hours ago               boring_goldberg 
+ab9a6ff67ac0   913ff2e46b29     "/bin/sh -c 'apt-get…"   37 hours ago   Exited (100) 37 hours ago             epic_napier     
+a48521d032e7   913ff2e46b29     "/bin/sh -c 'apt-get…"   37 hours ago   Exited (1) 37 hours ago               vigilant_ramanujan
+b808acc1180b   913ff2e46b29     "/bin/sh -c 'apt-get…"   38 hours ago   Exited (1) 38 hours ago               elegant_proskuriakova
+2aa93973438e   my-new-image-2   "bash"    
+               2 days ago     Exited (129) 2 days ago               xenodochial_mccarthy
+azureuser@ubuntu-vm:~$ nc localhost 45678        
+lets go!
+lets go2
+lets go again
+^C
+azureuser@ubuntu-vm:~$ nc localhost 45678        
+here we go again
+^C
+azureuser@ubuntu-vm:~$ docker ps --format $FORMAT 
+ID      8801e2314d06
+IMAGE   ubuntu:14.04
+COMMAND "bash"
+CREATED 7 minutes ago
+STATUS  Up 7 minutes
+PORTS   0.0.0.0:45678-45679->45678-45679/tcp, :::45678-45679->45678-45679/tcp
+NAMES   echo-server
+
+azureuser@ubuntu-vm:~$ nc localhost 45678        
+welcome to docker
+hello world
+hello world from inward port 
+
+^C
+azureuser@ubuntu-vm:~$ docker run --rm -ti ubuntu:14.04 bash
+root@5c25ccf524b1:/# nc host.docker.internal 45678
+nc: getaddrinfo: Name or service not known
+root@5c25ccf524b1:/#
+root@5c25ccf524b1:/# 
+root@5c25ccf524b1:/# 
+root@5c25ccf524b1:/# docker ps -a
+bash: docker: command not found
+root@5c25ccf524b1:/# exit
+exit
+azureuser@ubuntu-vm:~$ nc -add-host=host.docker.internal:45678
+nc: invalid option -- 'a'
+usage: nc [-46CDdFhklNnrStUuvZz] [-I length] [-i 
+interval] [-M ttl]
+          [-m minttl] [-O length] [-P proxy_username] [-p source_port]
+          [-q seconds] [-s source] [-T keyword] [-V rtable] [-W recvlimit] [-w timeout]
+          [-X proxy_protocol] [-x proxy_address[:port]]    [destination] [port]
+azureuser@ubuntu-vm:~$ nc -add-host=host.docker.internal 45678
+nc: invalid option -- 'a'
+usage: nc [-46CDdFhklNnrStUuvZz] [-I length] [-i 
+interval] [-M ttl]
+          [-m minttl] [-O length] [-P proxy_username] [-p source_port]
+          [-q seconds] [-s source] [-T keyword] [-V rtable] [-W recvlimit] [-w timeout]
+          [-X proxy_protocol] [-x proxy_address[:port]]    [destination] [port]
+azureuser@ubuntu-vm:~$ nc --add-host=host.docker.internal:45678
+nc: invalid option -- '-'
+usage: nc [-46CDdFhklNnrStUuvZz] [-I length] [-i 
+interval] [-M ttl]
+          [-m minttl] [-O length] [-P proxy_username] [-p source_port]
+          [-q seconds] [-s source] [-T keyword] [-V rtable] [-W recvlimit] [-w timeout]
+          [-X proxy_protocol] [-x proxy_address[:port]]    [destination] [port]
+azureuser@ubuntu-vm:~$ --add-host=host.docker.internal:45678
+--add-host=host.docker.internal:45678: command not found
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ docker run -it --add-host=host.docker.internal:45678 ubuntu:14.04 bash     
+invalid argument "host.docker.internal:45678" for "--add-host" flag: invalid IP address in add-host: "45678"
+See 'docker run --help'.
+azureuser@ubuntu-vm:~$ docker run -it --add-host=host.docker.internal:45678 ubuntu bash
+invalid argument "host.docker.internal:45678" for "--add-host" flag: invalid IP address in add-host: "45678"
+See 'docker run --help'.
+azureuser@ubuntu-vm:~$ docker run -it --add-host=host.docker.internal 45678 ubuntu bash
+invalid argument "host.docker.internal" for "--add-host" flag: bad format for add-host: "host.docker.internal"
+See 'docker run --help'.
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$
+azureuser@ubuntu-vm:~$ docker run -it --add-host=host.docker.internal:host-gateway ubuntu bash    
+root@2ef65fc67535:/#
+root@2ef65fc67535:/#
+root@2ef65fc67535:/#
+root@2ef65fc67535:/# nc host.docker.internal 45678
+bash: nc: command not found
+root@2ef65fc67535:/# azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ docker run -it --add-host=host.docker.internal:host-gateway ubuntu:14.04 bash
+root@506c83a070ca:/# nc host..docker.internal 45678
+nc: getaddrinfo: Name or service not known
+root@506c83a070ca:/# nc host.docker.internal 45678
+Here we go again solving the problem of not having netcat
+
+root@506c83a070ca:/#
+root@506c83a070ca:/# 
+root@506c83a070ca:/# 
+root@506c83a070ca:/# 
+root@506c83a070ca:/# docker port echo-server
+bash: docker: command not found
+root@506c83a070ca:/# ^C
+root@506c83a070ca:/# exit
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ docker port echo-server 
+45678/tcp -> 0.0.0.0:49154
+45678/tcp -> :::49154
+45679/tcp -> 0.0.0.0:49153
+45679/tcp -> :::49153
+azureuser@ubuntu-vm:~$ nc localhost 49154
+does this work?
+yes      
+azureuser@ubuntu-vm:~$ docker port echo-server   
+45678/udp -> 0.0.0.0:49153
+45678/udp -> :::49153
+azureuser@ubuntu-vm:~$ nc localhost 49153
+azureuser@ubuntu-vm:~$ docker port echo-server 
+45678/udp -> 0.0.0.0:49153
+45678/udp -> :::49153
+azureuser@ubuntu-vm:~$ nc localhost 49153        
+azureuser@ubuntu-vm:~$ nc -u localhost 49153     
+Hello world from udp perspective in docker
+
+
+
+
+azureuser@ubuntu-vm:~$ docker rm strange_neumann      
+strange_neumann
+azureuser@ubuntu-vm:~$ docker ps -l
+CONTAINER ID   IMAGE       
+   COMMAND   CREATED       
+   STATUS          PORTS   
+
+
+          NAMES
+8801e2314d06   ubuntu:14.04   "bash"    40 minutes ago   Up 40 minutes   0.0.0.0:45678-45679->45678-45679/tcp, :::45678-45679->45678-45679/tcp   echo-server      
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ 
+azureuser@ubuntu-vm:~$ docker run -it --add-host=host.docker.internal:host-gateway ubuntu:14.04 bash        
+root@8767b97aed1f:/# nc host.docker.internal 45679    
+Here we go again solving the problem of not having netcat
+
+
+Now am typing from another 
+container
+
+Ob        
+Obviously this is the same 
+as the master container where I started from
+root@8767b97aed1f:/# exit  
+azureuser@ubuntu-vm:~$ nc localhost 49153
+does this work?
+yes
+^C
+azureuser@ubuntu-vm:~$ 
