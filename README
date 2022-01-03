@@ -230,7 +230,7 @@ azureuser@ubuntu-vm:~$
 
 azureuser@ubuntu-vm:~$ sudo groupadd docker
 
-groupadd: group 'docker' already exists
+groupadd: group 'docker' already exists..
 
 azureuser@ubuntu-vm:~$ sudo usermod -aG docker $USER
 
